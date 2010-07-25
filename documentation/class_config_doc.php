@@ -3,7 +3,7 @@
 /**
  *STAT Configuration Class Documenation
  *This is the first class loaded, and parses YAML files for config/internationalization
- *as well as setting various php variables needed  
+ *as well as setting various php variables needed and substantiating db object 
  */
  
 config {

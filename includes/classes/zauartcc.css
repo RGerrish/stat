@@ -1,0 +1,245 @@
+@CHARSET "ISO-8859-1";
+.form {
+	font-family: Calibri, Verdana, Arial, Helvetica sans-serif;
+	font-size: 14px;
+	color: #000000;
+}
+A:link {color: #336699; text-decoration: none}
+A:visited {color: #336699; text-decoration: none}
+A:active {color: black}
+A:hover {color: #330000; text-decoration: underline}
+.zau-pagepart {display:inline; /*Fix IE floating margin bug*/; float:left; width:500px; margin:0 0 0 30px; overflow:visible !important /*Firefox*/; overflow:hidden /*IE6*/;}
+
+.nav {
+	font-family: Calibri,Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #336699;
+	line-height: 16px;
+	margin:2px 5px 5px 5px;
+	text-align: left;
+	cursor:pointer;
+}
+
+.navht {
+	font-family: Calibri,Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight:bold;
+	color: #336699;
+	line-height: 16px;
+	margin:2px 5px 5px 5px;
+	text-align: left;
+	cursor:pointer;
+}
+
+.menuHeader{
+	width:99%;
+	height:23px;
+	background-image: url('../images/menuhdr.jpg');
+	background-repeat:repeat-x;
+	color:WhiteSmoke;
+	background-color:#567dBE;
+	border:1px solid #567dbe;
+	font-weight:bold;
+	cursor:default;
+	float:left;
+	padding: 3px -2px  0px 2px; 	
+}
+
+.articleEditorTitleHeader{
+	width:100%;
+	height:25px;
+	background-image: url('../images/bg-menu-main.png');
+	background-repeat:repeat-x;
+	color:#FFF;
+	font-weight:bold;
+	cursor:pointer;
+	float:left;
+	border:#567dbe 1px solid;
+}
+
+.articleEditorBody
+{
+	width:800px;
+	margin:0px 0px 0px 0px;
+	background-color:whitesmoke;
+	font-size:12px;
+	font-family: Verdana,Calibri,serif;
+}
+
+.mandatoryField
+{
+	border-right-style: ridge; 
+	border-right-width: 2px; 
+	border-right-color: #FF0000
+}
+
+.defaultLabel {
+	border-bottom:1px solid black;
+	
+}
+
+.watermarked {
+	height:20px;
+	padding:2px 0 0 2px;
+	border:1px solid #BEBEBE;
+	background-color:#F0F8FF;
+	color:black;
+	width:500px;
+}
+
+.watermarkedSelect {
+	height:25px;
+	padding:2px 0 0 2px;
+	border:1px solid #BEBEBE;
+	background-color:#F0F8FF;
+	color:black;
+	width:500px;
+}
+
+.watermarkedTextArea {
+	padding:2px 0 0 2px;
+	border:1px solid #BEBEBE;
+	background-color:#F0F8FF;
+	color:black;
+	width:500px;
+}
+
+.warningLabel {
+	height:25px;
+	border:1px solid #BEBEBE;
+	background-color:Red;
+	color:Yellow;
+	width:300px;
+}
+
+.tblrow {
+	font-size: 12px;
+	font-family: Calibri, Verdana, 'Times New Roman';
+}
+
+.whiterow {
+	font-size: 12px;
+	height:30px;
+	font-family: Calibri, Verdana, 'Times New Roman';
+	background-color:White;
+	cursor:pointer;
+}
+
+.bluerow {
+	font-size: 12px;
+	height:30px;
+	font-family: Calibri, Verdana, 'Times New Roman';
+	background-color:#EFF3FB;
+	cursor:pointer;
+}
+
+.grayrow {
+	font-size: 12px;
+	height:30px;
+	font-family: Calibri, Verdana, 'Times New Roman';
+	background-color:white;
+	
+	cursor:pointer;
+}
+
+.highlight {
+	font-size: 12px;
+	height:30px;
+	font-family: Calibri, Verdana, 'Times New Roman';
+	color:blue;
+	background-color:Khaki;
+	cursor:pointer;
+}
+
+.sortlink {
+	text-decoration: underline;
+	color:blue;
+	cursor:pointer;
+}
+
+.inputDiv {
+	float:left;
+	height: 20px; 
+	padding:2px 2px 2px 2px;
+	text-align:right;
+	width:150px;
+}
+
+.frontPageHeader {
+	font-size: 14px;
+	font-weight:bold;
+	font-family: Tahoma, serif;
+	color:goldenrod;
+	border-bottom:1px ridge black;
+	padding-top:10px;
+}
+
+.leftNavHeader {
+	font-size: 12px;
+	font-weight: bold;
+	font-family: Verdana, serif, Calibri, Verdana;
+	text-decoration: underline;
+	text-shadow:silver;
+	padding-left:3px;
+	color:black;
+}
+
+.articleTitleHeader {
+	font-size: 18px;
+	font-family: Verdana, serif,Calibri, Verdana;
+	text-shadow:silver;
+	padding-bottom:10px;
+	color: #336699;
+}
+
+.articleTitleHeaderht {
+	font-size: 18px;
+	text-decoration:underline; 
+	font-family: Verdana, serif,Calibri, Verdana;
+	text-shadow:silver;
+	padding-bottom:10px;
+	color: #336699;
+}
+.articleFPSummary {
+	font-size: 12x;
+	font-family: Verdana, serif, Calibri, Verdana;
+	text-shadow:silver;
+	padding-left:10px;
+	padding-top:2px;
+	padding-bottom:20px;
+	color: black;
+}
+
+.articleFPAuthor {
+	font-size: 12px;
+	font-family: Verdana, serif, Calibri, Verdana;
+	text-shadow:silver;
+	font-style:italic;
+	padding-left:13px;
+	color: black;
+	
+}
+
+.dimPanel {
+	overflow-x:hidden;
+	overflow-y:auto;
+	position:absolute;
+	top:140px;
+	left:700px;
+	width:300px;
+	float:right;
+	background-color:whitesmoke;
+	background: rgba(245, 245, 245, 0.5);
+}
+
+.litPanel {
+	overflow-x:hidden;
+	overflow-y:auto;
+	position:absolute;
+	top:140px;
+	left:700px;
+	width:300px;
+	float:right;
+	background-color:#EFF3FB;
+}
+

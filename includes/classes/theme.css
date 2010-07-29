@@ -1,0 +1,8 @@
+body { margin: 0px; font-family: verdana sans; font-size: 11pt; background-image: url('/images/background2.jpg'); background-repeat: repeat-x; background-color: #5ed0ff}
+H1 { color: steelblue; font-size: 16pt; font-family: verdana sans; }
+#outter { margin: 0px auto 0px auto; width: 912px; height: 100%; overflow: hidden; background: url(/images/divbg.jpg); background-repeat: repeat-y; }
+#container { margin: 0px 1px 0px 1px; width: 910px; height: 100%; overflow: hidden; background-color: #ffffff; }
+#left{ float: left; width:670px; background-color: #ffffff; }
+#right { margin-left: 680px; height: 100%; width: 230px; overflow: hidden; }
+#footer { clear: left; background: #ffffff; text-align: center; width: 910px; }
+th.controllers { color: steelblue; font-size:12px }

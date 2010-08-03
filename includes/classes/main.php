@@ -1,6 +1,6 @@
 <?php
 /**
- *Main fucking Class
+ *Main Class
  *@package stat
  *@version 1.0
  *@desc Contains core funcationality for the program

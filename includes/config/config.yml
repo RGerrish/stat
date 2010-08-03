@@ -1,0 +1,14 @@
+#Student Training and Tracking System Configuration File
+#This file contains the core configuration requirements to setup the application
+#All entires within this file are contained in YAML format. (Parameter: Value)
+
+#Site Parameters
+BASE_URL: http://stat.localhost
+LANG: en
+
+#Database Information
+STAT_DBHOST: localhost
+STAT_DBUSER: root
+STAT_DBPASS:
+STAT_DBPREFIX: stat_
+STAT_DB: stat

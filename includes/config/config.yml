@@ -5,6 +5,7 @@
 #Site Parameters
 BASE_URL: http://stat.localhost
 LANG: en
+DEBUG: 1
 
 #Database Information
 STAT_DBHOST: localhost

@@ -81,10 +81,16 @@ class configuration {
    * @desc This method sets misc PHP variables
    * @return true
    */
-  private set_php_vars(){
-    if(phpversion() < 5.0){
-      die("Your version of PHP is " . phpversion() . ". STAT requires a minimum PHP version of 5.0");
-    }
+  private function set_php_vars(){
+
+		//Set Timezone
+	  date_default_timezone_set($this->config['TIMEZONE']);
+
+		//Set Timeout
+		set_time_limit('60');
+		ini_set('upload_max_filesize', '10M');
+		ini_set('post_max_size', '15M');
+
   }
 }
 ?>

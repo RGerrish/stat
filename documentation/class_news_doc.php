@@ -10,7 +10,7 @@ news extends note{
 
 /* Properties */
 
-int public $id 			 /* The auto inc database id */
+int public $news_id 			 /* The auto inc database id */
 string public $author		/* The author of the news item */
 string public $title		/* The title of the news item */
 string public $content		/* The content of the news item */
@@ -18,8 +18,7 @@ int public $beg_date		/* The beginning date the news item was published */
 int public $end_date		/* The ending date the news item was published */
 int public $order		/* The order id of the news item */
 int public $deleted		/* Status of the news item being deleted */
-int public $approved		/* Status of the news approval (if needed) */
-array public $news_error	/* News Errors */
+int public $published		/* Status of the news approval (if needed) */
 
 
 /* Methods */

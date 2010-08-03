@@ -7,6 +7,9 @@ BASE_URL: http://stat.localhost
 LANG: en
 DEBUG: 1
 
+#Timezone must be a valid timezone as listed at: http://www.php.net/manual/en/timezones.php
+TIMEZONE: UTC
+
 #Database Information
 STAT_DBHOST: localhost
 STAT_DBUSER: root

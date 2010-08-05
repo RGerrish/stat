@@ -59,7 +59,7 @@ class news extends main {
    * @param int $news_id
    * @desc Sets the values of the class
    */
-  public function __construct($news_id = NULL){
+  public function __construct($news_id = NULL) {
     if ($news_id) {
       /**
        * @todo fetch based upon news id and set class variables
@@ -75,11 +75,10 @@ class news extends main {
    * @desc Retrieves all news items depending on parameters
    * @return array Returns array of news items
    */
-  public function retrieve_all_news_items($within_date, $published=1, $deleted=0){
+  public function retrieve_all_news_items($within_date, $published=1, $deleted=0) {
     /**
      * @todo fetch all news items based on parameters set
      */
   }
-
 
 }

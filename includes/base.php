@@ -6,7 +6,7 @@
  * @version 1.0
  * @desc This file initates auto loading function for the classes and nessicary includes
  */
-
+@session_start(); 
 /**
  * Check Version of PHP. Minimum Version Required is 5.0
  */

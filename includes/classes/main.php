@@ -67,7 +67,7 @@ class main extends configuration {
     }
     //Destory Variable
     unset($_SESSION['error']);
+    return $output;
   }
 
 }
-

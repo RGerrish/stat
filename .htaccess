@@ -1,0 +1,12 @@
+# STAT HATCCESS FILE
+# Version 1.0
+
+
+# Enable basic URL rewriting
+RewriteEngine on
+
+# Disable directory browsing
+Options All -Indexes
+
+#Prepend file to base
+php_value auto_prepend_file "includes/base.php"

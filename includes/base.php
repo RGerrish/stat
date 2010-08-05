@@ -6,9 +6,7 @@
  * @version 1.0
  * @desc This file initates auto loading function for the classes and nessicary includes
  */
-/**
- * @todo Set .htaccess file to auto_prepend base.php
- */
+
 /**
  * Check Version of PHP. Minimum Version Required is 5.0
  */
@@ -17,11 +15,36 @@ if (phpversion() < "5.0") {
 }
 
 /**
- * @param string $class Class name
+ * @method debug
+ * @access public
+ * @param string The string to be debugged
  */
-function __autoload($class) {
-  require_once 'frameworks/sfyaml.php';
-  require_once 'classes/' . $class;
+
+function debug($string){
+  if($_SERVER['REMOTE_ADDR'] == '127.0.0.1' || $_SERVER['REMOTE_ADDR'] == '192.168.0.2' || $_SERVER['REMOTE_ADDR'] == '70.40.219.151'){
+    echo '<pre>' . print_r($string,true) . '</pre>';
+  }else{
+    return; 
+  }
+}
+
+/**
+ * @method __autoload
+ * @access private
+ * @param string String name of class to be loaded
+ *
+ */
+
+function __autoload($class){
+
+	if(file_exists('includes/classes/' . $class . '.php')){
+		include('includes/classes/' . $class . '.php');
+	}
+
+	if(file_exists('includes/frameworks/' . $class . '.php')){
+		include('includes/frameworks/' . $class . '.php');
+	}
 }
 
 ?>
+

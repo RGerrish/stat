@@ -40,7 +40,7 @@ class configuration {
    * @desc This function initates the database variables
    * @returns Array of database objects
    */
-  private function init_db() {
+  public function init_db() {
     /**
      * @todo Initalize database informations based upon presence of DBA
      */
@@ -51,17 +51,17 @@ class configuration {
    * @desc Parses the various YAML files required for use
    * @return array Returns associative array of parsed config and internationalization file
    */
-  private function parse_yaml() {
+  public function parse_yaml() {
     $yml = new sfYamlParser();
 
     try {
-      $this->config = $yml->parse(file_get_contents('../config/config.yaml'));
+      $this->config = $yml->parse(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/includes/config/config.yml'));
     } catch (InvalidArgumentException $e) {
       die("Unable to parse the STAT Configuration File: " . $e->getMessage());
     }
 
     try {
-      $this->lang = $yml->parse(file_get_contents('../l18n/' . $config['LANG'] . '.yml'));
+      $this->lang = $yml->parse(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/includes/l18n/' . $this->config['LANG'] . '.yml'));
     } catch (InvalidArgumentException $e) {
       die("Unable to parse the STAT Language file: " . $e->getMessage());
     }
@@ -72,7 +72,7 @@ class configuration {
    * @desc This method sets misc PHP variables
    * @return true
    */
-  private function set_php_vars() {
+  public function set_php_vars() {
 
     //Set Timezone
     date_default_timezone_set($this->config['TIMEZONE']);

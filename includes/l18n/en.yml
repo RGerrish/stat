@@ -1,1 +1,11 @@
 WELCOME_MESSAGE: message
+
+
+#Error Messages
+ERROR_RETRIEVE_NEWS_ITEM: There was an error retrieving the news item selected.
+ERROR_RETRIEVE_ALL_NEWS: There was an error retrieving the news items.
+ERROR_SAVE_NEWS: There was an error saving the news item.
+
+
+#Successful Messages
+SUCCESS_NOTE_SAVE: The note item has been saved!

@@ -10,9 +10,17 @@ DEBUG: 1
 #Timezone must be a valid timezone as listed at: http://www.php.net/manual/en/timezones.php
 TIMEZONE: UTC
 
-#Database Information
-STAT_DBHOST: localhost
-STAT_DBUSER: root
-STAT_DBPASS:
+#STAT Database Information
+STAT_DBTYPE: mysqli
+STAT_DBHOST: vzidartcc.org
+STAT_DBUSER: learntof_vatsim
+STAT_DBPASS: ~$mF5n{2aEnU 
 STAT_DBPREFIX: stat_
-STAT_DB: stat
+STAT_DB: learntof_vatsimstat
+
+#User Database Information
+USER_DBTYPE: mysqli
+USER_DBHOST: vzidartcc.org
+USER_DBUSER: learntof
+USER_DBPASS: mIKEHODGE1845235!
+USER_DB: learntof_zidartcc

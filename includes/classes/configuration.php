@@ -21,7 +21,7 @@ class configuration {
   public $db;
   /**
    * @global config
-   * @desc Contains the configuration parameters
+   * @desc Contains the database strings
    */
   public $config;
 
@@ -38,12 +38,28 @@ class configuration {
   /**
    * @method configuration::init_db
    * @desc This function initates the database variables
-   * @returns Array of database objects
+   * @returns Array of database object
    */
   public function init_db() {
-    /**
-     * @todo Initalize database informations based upon presence of DBA
-     */
+
+    require_once 'MDB2.php';
+
+    //Create DB String(s)
+    $conn['STAT'] = $this->config['STAT_DBTYPE'] . '://' . $this->config['STAT_DBUSER'] .
+      ':' . $this->config['STAT_DBPASS'] . '@' . $this->config['STAT_DBHOST'] . '/' .
+      $this->config['STAT_DB'];
+    $conn['USER'] = $this->config['USER_DBTYPE'] . '://' . $this->config['USER_DBUSER'] .
+      ':' . $this->config['USER_DBPASS'] . '@' . $this->config['USER_DBHOST'] . '/' .
+      $this->config['USER_DB'];
+
+    $this->db['STAT'] = & MDB2::factory($conn['STAT']);
+    $this->db['USER'] = & MDB2::factory($conn['USER']);
+
+    //Sets Fetch mode to associative array, must pass MDB2_FETCHMODE_ORDERED
+    //for normal ordered array
+
+    $this->db['STAT']->setFetchMode(MDB2_FETCHMODE_ASSOC);
+    $this->db['USER']->setFetchMode(MDB2_FETCHMODE_ASSOC);
   }
 
   /**
@@ -55,15 +71,18 @@ class configuration {
     $yml = new sfYamlParser();
 
     try {
-      $this->config = $yml->parse(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/includes/config/config.yml'));
+      if (!$yml->parse(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/includes/config/config.yml'))) {
+        throw new InvalidArgumentException('Unable to parse the STAT Configuration File: config.yml');
+      } else {
+        $this->config = $yml->parse(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/includes/config/config.yml'));
+      }
+      if (!$yml->parse(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/includes/l18n/' . $this->config['LANG'] . '.yml'))) {
+        throw new InvalidArgumentException('Unable to parse the STAT Language File: ' . $this->config['LANG'] . '.yml');
+      } else {
+        $this->lang = $yml->parse(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/includes/l18n/' . $this->config['LANG'] . '.yml'));
+      }
     } catch (InvalidArgumentException $e) {
-      die("Unable to parse the STAT Configuration File: " . $e->getMessage());
-    }
-
-    try {
-      $this->lang = $yml->parse(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/includes/l18n/' . $this->config['LANG'] . '.yml'));
-    } catch (InvalidArgumentException $e) {
-      die("Unable to parse the STAT Language file: " . $e->getMessage());
+      die($e->getMessage());
     }
   }
 

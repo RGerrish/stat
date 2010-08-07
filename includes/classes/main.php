@@ -11,15 +11,22 @@ class main extends configuration {
   /**
    * @method main::clean_input
    * @param String $string
-   * @desc This method preforms a real-escape-string and htmlentities and returns string
+   * @desc This method preforms a real-escape-string and returns string
    * @return returns DB ready formatting of string
    */
   public function clean_input($string) {
-    /**
-     * @todo Insert DBA escape_string function for $string
-     */
-    $string = htmlentities($string);
     $string = trim($string);
+    return $string;
+  }
+
+  /**
+   * @method main::clean_output
+   * @param String $string
+   * @desc This method preforms a htmlentities on the string provided
+   * @return returns css safe string
+   */
+  public function clean_output($string) {
+    $string = htmlentities($string);
     return $string;
   }
 

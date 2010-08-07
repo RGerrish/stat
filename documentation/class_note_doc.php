@@ -12,16 +12,14 @@ note extends main{
 
 int public $id 			 /* The auto inc database id */
 int public $cid 		 /* CID of the student */
-string public $fname 		 /* The first name of the student */
-string public $lname 		 /* The last name of the student */
-timestamp public $date		 /* unix timestamp of the date */
-int public $category_id  	 /* category id */
+int public $date		 /* unix timestamp of the date */
+int public $category_id  	 /* category id (foreign key of note category table */
 string public $summary  	 /* summary of note */
-string public $user    		 /* person submitting the note */
+string public $private_summary /* summary only viewable to admins */
+string public $author    		 /* person submitting the note */
 int public $duration   		 /* duration of training session (in seconds) */
-string public $training_items 	 /* Items covered on the training notes */
-array public $note_error	 /* Errors created for note class */
-array public $amend_items	 /* Note Ammendments add to the specific note */
+string public $training_items 	 /* Items covered on the training notes (a serialized array) */
+array public $amend_items	 /* grabbed from a seperate table */
 
 /* Methods */
 

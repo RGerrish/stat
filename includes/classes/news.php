@@ -58,11 +58,12 @@ class news extends main {
    * @method news::load_news_from_id
    * @param int $news_id
    * @desc Sets the values of the class
+   * @return This function sets the properties for the news class, or returns false if failure
    */
   public function load_news_from_id($news_id) {
 
     $sql = & $this->db['STAT']->prepare("SELECT * FROM " . $this->config['STAT_DBPREFIX'] . "news WHERE id=?");
-    $result = & $sql->execute($news_id);
+    $result = & $sql->execute($sql);
     if (PEAR::isError($result)) {
       return false;
     }
@@ -75,6 +76,38 @@ class news extends main {
     $this->order = $row['order'];
     $this->deleted = $row['deleted'];
     $this->published = $row['published'];
+  }
+
+  /**
+   * @method news::__set
+   * @param string $key The property of the class you wish to set
+   * @param string $value The value of the property you wish to set the key too
+   * @desc This function preforms the set methods for the class
+   * @return returns true if success
+   */
+  public function __set($key, $value) {
+    switch ($key) {
+      case 'beg_date':
+        $this->beg_date = strtotime($value);
+        break;
+      case 'end_date':
+        $this->end_date = strtotime($value);
+        break;
+      default:
+        $this->$key = $this->clean_input($value);
+        break;
+    }
+    return true;
+  }
+
+  /**
+   * @method news::__get
+   * @param string $key The property of the class you wish to retrieve
+   * @desc This function preforms the get methods for the class
+   * @return returns value of key
+   */
+  public function __get($key) {
+    return $this->clean_output($this->$key);
   }
 
   /**
@@ -144,10 +177,23 @@ class news extends main {
     }
 
     if (PEAR::isError($result)) {
-      $this->set_error($this->lang['ERROR_SAVE_NEWS'], 'error');
       return false;
     } else {
-      $this->set_error($this->lang['SUCCESS_NEWS_SAVE'], 'success');
+      return true;
+    }
+  }
+
+  /**
+   * @method news::delete
+   * @desc Preforms a soft delete on the news item
+   * @return Returns true if success, false if fails
+   */
+  public function delete() {
+    $sql = & $this->db['STAT']->prepare("DELETE FROM " . $this->config['STAT_DBPREFIX'] . " WHERE id=?");
+    $result = & $sql->execute($this->news_id);
+    if (PEAR::isError($result)) {
+      return false;
+    } else {
       return true;
     }
   }

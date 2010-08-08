@@ -8,9 +8,7 @@
  */
 class main extends configuration {
 
-  public function __construct(){
-    parent::__construct(); 
-  }
+  
   /**
    * @method main::clean_input
    * @param String $string
